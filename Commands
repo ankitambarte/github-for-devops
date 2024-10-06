@@ -15,3 +15,25 @@ give executable permissions to this file by
 chmod 777
 
 do try adding a .py file and test this results
+
+######################################################################################################
+If password and API are written in code and you dont want it to be commited 
+
+create a hook file 
+
+add shell script
+
+if git grep -q "password\|API_token\|secret_key" $(git diff --cached --name-only); then
+    echo "Sensitive information found!"
+
+git diff --cached --name-only:
+
+This part lists the names of the files that have been staged (added to the index) for the next commit. The --cached option shows changes that are staged, and --name-only outputs just the filenames.
+git grep -q "password\|API_token\|secret_key":
+
+This uses git grep to search for the patterns "password", "API_token", or "secret_key" in the specified files. The -q option means it will not output matching lines, just return an exit status.
+The if statement:
+
+The if checks the exit status of the git grep command. If it finds any of the sensitive terms, the exit status will be 0, and it will execute the block that echoes "Sensitive information found!" Otherwise, it will echo "No sensitive information."
+
+
