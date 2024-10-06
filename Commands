@@ -1,0 +1,17 @@
+flake8 - used to check the quality of python code or it can check the errors in programming
+
+example - flake8 file_name.extension
+
+we can use this before commiting the code to get best quality code
+ we can use hooks to do this 
+
+Create a file in hooks
+put shell script in it 
+
+files = $(git diff --cached --name-only --diff-filter=ACM | grep'\.py$')
+flake8 $files
+
+give executable permissions to this file by
+chmod 777
+
+do try adding a .py file and test this results
