@@ -1,6 +1,6 @@
 flake8 - used to check the quality of python code or it can check the errors in programming
 
-example - flake8 file_name.extension
+example - flake8 file_name.py
 
 we can use this before commiting the code to get best quality code
  we can use hooks to do this 
